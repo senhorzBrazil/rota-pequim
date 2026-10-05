@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rota Pequim · Início</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Oswald:wght@600;700&family=Noto+Serif+SC:wght@600;900&display=swap">
+<style>
+/* Layout: tela de app em estilo cartaz de propaganda — raios de sol vermelhos, dourado de medalha, papel envelhecido */
+:root{
+  --paper:#F6F1EA;
+  --card:#FFFFFF;
+  --ink:#1E1715;
+  --muted:#6F625E;
+  --line:#E7DCD3;
+  --red:#C8102E;
+  --red-deep:#8E0B20;
+  --gold:#F2B630;
+  --gold-deep:#B07A0C;
+  --gold-soft:#FBEFD3;
+  --jade:#2F7D62;
+  --f-display:"Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+  --f-poster:"Oswald", "Arial Narrow", "Figtree", sans-serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-han:"Noto Serif SC", "Songti SC", "PingFang SC", serif;
+  color-scheme:light only;
+}
+*{box-sizing:border-box}
+html,body{background:#E5DDD6;color:var(--ink)}
+body{margin:0;font-family:var(--f-body);font-size:15px;line-height:1.45;padding:32px 16px;display:flex;justify-content:center}
+.phone{width:100%;max-width:400px;background:var(--paper);border-radius:40px;border:10px solid #1E1715;overflow:hidden;box-shadow:0 30px 60px -20px rgba(70,20,20,.35);position:relative}
+.screen{padding:0 0 88px}
+
+/* topo: cartaz com raios */
+.top{color:#fff;padding:20px 20px 28px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 62%, rgba(255,214,120,.35) 0 18%, transparent 46%),
+    repeating-conic-gradient(from 0deg at 85% 62%, #C8102E 0 7deg, #AE0C26 7deg 14deg);}
+.top>*{position:relative;z-index:1}
+.top .poster-star{position:absolute;z-index:0;right:-30px;top:84px;width:160px;height:170px;fill:#fff;transform:rotate(12deg);filter:drop-shadow(0 6px 14px rgba(80,0,10,.35))}
+.top .poster-hs{position:absolute;z-index:0;right:20px;top:128px;width:66px;height:66px;transform:rotate(12deg)}
+.top .poster-hs{fill:var(--red)}
+.status{display:flex;justify-content:space-between;font-size:12px;font-weight:600;opacity:.9;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:10px}
+.seal{width:40px;height:40px;border-radius:50%;background:var(--gold);display:grid;place-items:center;border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-deep)}
+.seal svg{width:26px;height:26px}
+.seal svg{fill:var(--red-deep)}
+.brand b{font-family:var(--f-poster);font-weight:700;font-size:22px;letter-spacing:.02em;text-transform:uppercase}
+.brand small{display:block;font-size:11px;opacity:.9;letter-spacing:.08em;text-transform:uppercase}
+.avatar{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#fff;color:var(--red);display:grid;place-items:center;font-weight:700;border:2px solid var(--gold)}
+.hello{margin-top:22px;max-width:70%}
+.hello .han{font-family:var(--f-han);font-weight:900;font-size:30px;line-height:1.1;color:var(--gold);text-shadow:2px 2px 0 var(--red-deep)}
+.hello .py{font-size:13px;opacity:.9;margin-top:2px}
+.hello h1{font-family:var(--f-display);font-weight:800;font-size:24px;line-height:1.15;margin:8px 0 0;text-wrap:balance}
+
+/* faixa de lema */
+.ribbon{background:var(--gold);color:var(--red-deep);overflow:hidden;white-space:nowrap;border-block:3px solid var(--red-deep);font-family:var(--f-poster);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:13px;padding:7px 0;position:relative;z-index:2}
+.ribbon .track{display:inline-flex;gap:28px;padding-left:16px}
+.ribbon .track span{display:inline-flex;align-items:center;gap:10px}
+.ribbon .track span .han{font-family:var(--f-han);font-weight:900;letter-spacing:0}
+.ribbon svg{width:14px;height:14px}
+.ribbon svg{fill:var(--red-deep)}
+
+/* contagem */
+.trip{margin:14px 16px 0;background:var(--card);border-radius:20px;padding:16px;box-shadow:0 10px 24px -12px rgba(120,20,30,.35);position:relative;z-index:3;border-top:5px solid var(--red)}
+.trip-row{display:flex;align-items:center;gap:14px}
+.days{font-family:var(--f-poster);font-weight:700;font-size:48px;color:var(--red);line-height:1;font-variant-numeric:tabular-nums}
+.trip p{margin:0;font-size:13px;color:var(--muted)}
+.trip p strong{color:var(--ink);display:block;font-size:15px}
+.route{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.route .bar{flex:1;height:6px;background:var(--line);border-radius:6px;position:relative}
+.route .bar i{position:absolute;inset:0 62% 0 0;background:linear-gradient(90deg,var(--gold),var(--red));border-radius:6px}
+.route .bar i::after{content:"✈";position:absolute;right:-10px;top:-9px;font-size:15px;color:var(--red)}
+
+/* medalha */
+.medal{margin:12px 16px 0;display:flex;gap:12px;align-items:center;background:var(--gold-soft);border:1px solid #EBD39A;border-radius:16px;padding:10px 12px}
+.medal .m{flex:none;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFE29A,var(--gold) 55%,var(--gold-deep));display:grid;place-items:center;box-shadow:0 2px 0 var(--gold-deep)}
+.medal .m svg{width:24px;height:24px;fill:var(--red)}
+.medal b{font-size:14px;display:block}
+.medal span{font-size:12px;color:#7A5410}
+
+/* seções */
+section{padding:22px 16px 0}
+.sec-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sec-h h2{font-family:var(--f-poster);font-weight:700;font-size:18px;margin:0;text-transform:uppercase;letter-spacing:.03em;display:flex;align-items:center;gap:8px}
+.sec-h h2 svg{width:15px;height:15px;fill:var(--red)}
+.sec-h a{font-size:13px;color:var(--red);font-weight:600;text-decoration:none}
+
+/* aula do dia: mini cartaz */
+.lesson{color:#fff;border-radius:20px;padding:18px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;position:relative;overflow:hidden;
+  background:repeating-conic-gradient(from 0deg at 100% 100%, #241A18 0 6deg, #1A1211 6deg 12deg)}
+.lesson>*{position:relative}
+.tag{display:inline-block;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:99px}
+.lesson h3{font-family:var(--f-display);font-weight:800;font-size:19px;line-height:1.2;margin:8px 0 4px;text-wrap:balance}
+.lesson .han{font-family:var(--f-han);font-weight:900;font-size:22px;color:var(--gold)}
+.lesson .han small{font-family:var(--f-body);font-size:13px;font-weight:600;color:#CFC4C0}
+.play{width:58px;height:58px;border-radius:50%;border:3px solid var(--gold);background:var(--red);color:#fff;font-size:20px;cursor:pointer;box-shadow:0 0 0 6px rgba(200,16,46,.25),0 0 22px rgba(200,16,46,.6)}
+.play:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* palavra do dia */
+.word{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;display:flex;gap:16px;align-items:center}
+.word .big{font-family:var(--f-han);font-weight:900;font-size:52px;color:var(--red);line-height:1}
+.word .py{font-weight:700;font-size:17px}
+.tones{display:flex;gap:4px;margin:4px 0 6px}
+.tones span{font-size:11px;font-weight:700;background:var(--gold-soft);color:#7A5410;padding:2px 7px;border-radius:6px}
+.word p{margin:0;font-size:13px;color:var(--muted)}
+
+/* livrinho vermelho */
+.book{display:grid;grid-template-columns:86px 1fr;gap:14px;align-items:center}
+.cover{aspect-ratio:3/4;max-width:100%;background:linear-gradient(90deg,#7A0A1B 0 8px,var(--red) 8px);border-radius:4px 10px 10px 4px;box-shadow:4px 6px 0 rgba(0,0,0,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--gold);padding:8px}
+.cover svg{width:34px;height:34px;fill:var(--gold)}
+.cover b{font-family:var(--f-han);font-weight:900;font-size:13px;letter-spacing:.1em}
+.quotes{display:flex;flex-direction:column;gap:8px;min-width:0}
+.q{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:8px 10px}
+.q .han{font-family:var(--f-han);font-weight:900;font-size:16px}
+.q .py{font-size:12px;color:var(--gold-deep);font-weight:600}
+.q p{margin:2px 0 0;font-size:13px}
+
+/* módulos */
+.mods{display:flex;flex-direction:column;gap:8px}
+.mod{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.mod .h{width:48px;height:48px;border-radius:12px;background:var(--gold-soft);color:var(--red-deep);display:grid;place-items:center;font-family:var(--f-han);font-weight:900;font-size:19px}
+.mod.done .h{background:var(--red);color:var(--gold)}
+.mod.lock{opacity:.55}
+.mod b{display:block;font-size:14px;line-height:1.25}
+.mod em{font-style:normal;font-size:12px;color:var(--muted)}
+.mod .st{font-size:12px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.mod.done .st{color:var(--jade)}
+.mod.now{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.12)}
+.mod.now .st{color:var(--red)}
+
+/* frase pronta */
+.phrase{background:var(--gold-soft);border-radius:20px;padding:16px;border:1px dashed #E3C27A}
+.phrase .han{font-family:var(--f-han);font-weight:900;font-size:22px}
+.phrase .py{font-size:13px;color:#7A5410;font-weight:600}
+.phrase p{margin:6px 0 0;font-size:14px}
+
+.disc{font-size:11px;color:var(--muted);text-align:center;padding:18px 16px 0;margin:0}
+
+/* nav */
+nav{position:absolute;left:0;right:0;bottom:0;background:var(--red-deep);display:grid;grid-template-columns:repeat(5,1fr);padding:10px 6px 16px;border-top:3px solid var(--gold)}
+nav a{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:600;color:#F3C9CF;text-decoration:none}
+nav a .i{font-family:var(--f-han);font-weight:900;font-size:18px}
+nav a.on{color:var(--gold)}
+nav a.mid{margin-top:-26px}
+nav a.mid .c{width:52px;height:52px;border-radius:50%;background:var(--gold);display:grid;place-items:center;border:3px solid var(--red-deep);box-shadow:0 4px 12px rgba(0,0,0,.25)}
+nav a.mid .c svg{width:28px;height:28px}
+nav a.mid .c svg{fill:var(--red-deep)}
+nav a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:8px}
+
+@media (max-width:440px){
+  body{padding:0}
+  .phone{border:0;border-radius:0;max-width:none;box-shadow:none;min-height:100vh}
+}
+@media (prefers-reduced-motion:no-preference){
+  .route .bar i{animation:fly 1.4s ease-out both}
+  @keyframes fly{from{right:100%}to{right:62%}}
+  .ribbon .track{animation:marq 22s linear infinite}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  .top .poster-star{animation:pulse 4s ease-in-out infinite}
+  @keyframes pulse{50%{transform:rotate(16deg) scale(1.04)}}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="hs" viewBox="0 0 100 100">
+    <!-- foice -->
+    <path d="M60 10c22 6 34 28 28 50-6 21-27 34-49 30l-9 11-8-7 9-10C24 76 18 62 20 48c6 14 20 24 36 22 18-2 30-18 28-36-1-10-10-20-24-24z"/>
+    <!-- martelo -->
+    <path d="M22 16l14-12 14 14-6 5 40 44-9 8-40-44-6 5z"/>
+  </symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 1.8l2.9 7.1 7.6.5-5.9 4.9 1.9 7.4L12 17.6l-6.5 4.1 1.9-7.4-5.9-4.9 7.6-.5z"/></symbol>
+</svg>
+
+<div class="phone">
+  <div class="screen">
+    <header class="top">
+      <svg class="poster-star" aria-hidden="true"><use href="#star"/></svg>
+      <svg class="poster-hs" aria-hidden="true"><use href="#hs"/></svg>
+      <div class="status"><span>9:41</span><span>5G · 87%</span></div>
+      <div class="brand">
+        <div class="seal"><svg aria-hidden="true"><use href="#hs"/></svg></div>
+        <div><b>Rota Pequim</b><small>Mandarim de malas prontas</small></div>
+        <div class="avatar" aria-label="Seu perfil">C</div>
+      </div>
+      <div class="hello">
+        <div class="han">你好，同志！</div>
+        <div class="py">Nǐ hǎo, tóngzhì!</div>
+        <h1>Bem-vindo de volta, companheiro. O passaporte já está na gaveta?</h1>
+      </div>
+    </header>
+
+    <div class="ribbon" aria-label="Lema: Proletários de todo o mundo, uni-vos">
+      <div class="track">
+        <span><svg><use href="#hs"/></svg><span class="han">全世界无产者，联合起来！</span></span>
+        <span><svg><use href="#star"/></svg>Proletários de todo o mundo, uni-vos (em mandarim)</span>
+        <span><svg><use href="#hs"/></svg><span class="han">为人民服务</span> · Servir ao povo</span>
+        <span><svg><use href="#star"/></svg>Estudar é um dever revolucionário</span>
+        <span><svg><use href="#hs"/></svg><span class="han">全世界无产者，联合起来！</span></span>
+        <span><svg><use href="#star"/></svg>Proletários de todo o mundo, uni-vos (em mandarim)</span>
+        <span><svg><use href="#hs"/></svg><span class="han">为人民服务</span> · Servir ao povo</span>
+        <span><svg><use href="#star"/></svg>Estudar é um dever revolucionário</span>
+      </div>
+    </div>
+
+    <div class="trip">
+      <div class="trip-row">
+        <div class="days">87</div>
+        <p><strong>dias até o embarque</strong>Faltam 3 módulos pra você pedir o jantar sem apontar pro cardápio.</p>
+      </div>
+      <div class="route"><span>GRU</span><div class="bar"><i></i></div><span>PEK</span></div>
+    </div>
+
+    <div class="medal">
+      <div class="m"><svg aria-hidden="true"><use href="#star"/></svg></div>
+      <div><b>Herói do Trabalho Linguístico</b><span>14 dias seguidos de estudo · meta do plano: 30</span></div>
+    </div>
+
+    <section>
+      <div class="sec-h"><h2><svg><use href="#star"/></svg>Aula de hoje</h2><a href="#">Ver trilha</a></div>
+      <div class="lesson">
+        <div>
+          <span class="tag">Módulo 3 · 12 min</span>
+          <h3>Plano quinquenal: enfim um planejamento que dura mais que 4 anos</h3>
+          <div class="han">五年计划 <small>wǔ nián jìhuà</small></div>
+        </div>
+        <button class="play" id="play" aria-label="Começar aula">▶</button>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-h"><h2><svg><use href="#star"/></svg>Palavra do dia</h2><a href="#">Ouvir</a></div>
+      <div class="word">
+        <div class="big">红色</div>
+        <div>
+          <div class="py">hóngsè</div>
+          <div class="tones"><span>2º tom ↗</span><span>4º tom ↘</span></div>
+          <p>“Vermelho”. Essa você não precisa decorar: o guarda-roupa já está pronto.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-h"><h2><svg><use href="#star"/></svg>Livrinho vermelho</h2><a href="#">Todas as frases</a></div>
+      <div class="book">
+        <div class="cover"><svg aria-hidden="true"><use href="#hs"/></svg><b>语录</b></div>
+        <div class="quotes">
+          <div class="q"><div class="han">为人民服务</div><div class="py">wèi rénmín fúwù</div><p>“Servir ao povo.”</p></div>
+          <div class="q"><div class="han">好好学习，天天向上</div><div class="py">hǎohǎo xuéxí, tiāntiān xiàngshàng</div><p>“Estude direito e melhore a cada dia.”</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-h"><h2><svg><use href="#star"/></svg>Sua trilha</h2><a href="#">6 módulos</a></div>
+      <div class="mods">
+        <div class="mod done"><div class="h">你好</div><div><b>Saudações na nova pátria</b><em>nǐ hǎo · 8 aulas</em></div><span class="st">✓ 100%</span></div>
+        <div class="mod done"><div class="h">同志</div><div><b>“Companheiro”: a palavra que você já domina</b><em>tóngzhì · 5 aulas</em></div><span class="st">✓ 100%</span></div>
+        <div class="mod now"><div class="h">计划</div><div><b>Plano quinquenal e outros planos</b><em>wǔ nián jìhuà · 7 aulas</em></div><span class="st">3/7</span></div>
+        <div class="mod"><div class="h">签证</div><div><b>“Eu quero um visto”, com educação</b><em>wǒ yào qiānzhèng · 6 aulas</em></div><span class="st">0/6</span></div>
+        <div class="mod"><div class="h">高铁</div><div><b>Trem-bala: quando a obra fica pronta</b><em>gāotiě · 4 aulas</em></div><span class="st">0/4</span></div>
+        <div class="mod lock"><div class="h">巴西</div><div><b>Bônus: saudade do feijão com arroz</b><em>xiǎngniàn Bāxī · libera no embarque</em></div><span class="st">🔒</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-h"><h2><svg><use href="#star"/></svg>Frase de sobrevivência</h2></div>
+      <div class="phrase">
+        <div class="han">我的护照在这里。</div>
+        <div class="py">Wǒ de hùzhào zài zhèlǐ.</div>
+        <p>“Meu passaporte está aqui.” Treine na frente do espelho antes da imigração.</p>
+      </div>
+    </section>
+    <p class="disc">Página de humor. Sem qualquer vínculo com partido político.</p>
+  </div>
+
+  <nav aria-label="Navegação">
+    <a href="#" class="on"><span class="i">家</span>Início</a>
+    <a href="#"><span class="i">课</span>Lições</a>
+    <a href="#" class="mid" aria-label="Estudar agora"><span class="c"><svg aria-hidden="true"><use href="#hs"/></svg></span>Estudar</a>
+    <a href="#"><span class="i">说</span>Falar</a>
+    <a href="#"><span class="i">我</span>Perfil</a>
+  </nav>
+</div>
+</body>
+</html>
