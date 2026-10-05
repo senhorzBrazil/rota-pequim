@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rota Pequim</title>
+<title>Rota Pequim · Área de Membros</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Figtree:wght@400;500;600;700&family=Oswald:wght@600;700&family=Noto+Serif+SC:wght@900&display=swap">
 <style>
-/* Layout: tela de login em cartaz de propaganda — raios no topo, emblema central, cartão de acesso embaixo */
+/* Layout: login em tela dividida — cartaz de propaganda à esquerda, acesso à direita; empilha no celular */
 :root{
   --paper:#F6F1EA;
   --card:#FFFFFF;
@@ -19,7 +19,6 @@
   --red-deep:#8E0B20;
   --gold:#F2B630;
   --gold-deep:#B07A0C;
-  --gold-soft:#FBEFD3;
   --f-display:"Bricolage Grotesque", "Figtree", system-ui, sans-serif;
   --f-poster:"Oswald", "Arial Narrow", "Figtree", sans-serif;
   --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -27,71 +26,81 @@
   color-scheme:light only;
 }
 *{box-sizing:border-box}
-html,body{background:#E5DDD6;color:var(--ink)}
-body{margin:0;font-family:var(--f-body);font-size:15px;line-height:1.45;padding:32px 16px;display:flex;justify-content:center}
-.phone{width:100%;max-width:400px;min-height:820px;background:var(--paper);border-radius:40px;border:10px solid #1E1715;overflow:hidden;box-shadow:0 30px 60px -20px rgba(70,20,20,.35);position:relative;display:flex;flex-direction:column}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5}
+.wrap{min-height:100%;display:grid;grid-template-columns:1.15fr 1fr}
 
 /* cartaz */
-.poster{color:#fff;position:relative;overflow:hidden;padding:18px 20px 70px;text-align:center;
+.poster{position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:32px;padding:40px 48px;
   background:
-    radial-gradient(circle at 50% 46%, rgba(255,214,120,.45) 0 14%, transparent 44%),
-    repeating-conic-gradient(from 0deg at 50% 46%, #C8102E 0 7.5deg, #A90B24 7.5deg 15deg);}
-.poster::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-40px;height:80px;background:var(--paper);border-radius:50% 50% 0 0}
-.status{display:flex;justify-content:space-between;font-size:12px;font-weight:600;opacity:.9}
-.emblem{position:relative;width:150px;height:150px;margin:22px auto 0}
-.emblem .star{position:absolute;inset:0;width:100%;height:100%;fill:#fff;filter:drop-shadow(0 8px 16px rgba(80,0,10,.4))}
-.emblem .hs{position:absolute;left:50%;top:52%;width:58px;height:58px;transform:translate(-50%,-50%)}
-.emblem .hs{fill:var(--red)}
-.poster h1{position:relative;z-index:1;margin:14px 0 0;font-family:var(--f-poster);font-weight:700;font-size:40px;line-height:1;letter-spacing:.03em;text-transform:uppercase;text-shadow:3px 3px 0 var(--red-deep)}
-.poster .han{position:relative;z-index:1;font-family:var(--f-han);font-weight:900;font-size:22px;color:var(--gold);letter-spacing:.2em;margin-top:6px}
-.poster .tag{position:relative;z-index:1;display:inline-block;margin-top:10px;background:var(--gold);color:var(--red-deep);font-family:var(--f-poster);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:12px;padding:4px 12px;border:2px solid var(--red-deep)}
+    radial-gradient(circle at 50% 44%, rgba(255,214,120,.45) 0 10%, transparent 40%),
+    repeating-conic-gradient(from 0deg at 50% 44%, #C8102E 0 6deg, #A90B24 6deg 12deg);}
+.poster>*{position:relative}
+.brand{display:flex;align-items:center;gap:12px}
+.seal{width:42px;height:42px;border-radius:50%;background:var(--gold);display:grid;place-items:center;border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-deep)}
+.seal svg{width:26px;height:26px;fill:var(--red-deep)}
+.brand b{font-family:var(--f-poster);font-weight:700;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
+.brand span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;display:block}
+.center{text-align:center;display:flex;flex-direction:column;align-items:center}
+.emblem{position:relative;width:min(240px,40vw);aspect-ratio:1;max-width:100%}
+.emblem .star{position:absolute;inset:0;width:100%;height:100%;fill:#fff;filter:drop-shadow(0 12px 24px rgba(80,0,10,.45))}
+.emblem .hs{position:absolute;left:50%;top:53%;width:38%;height:38%;transform:translate(-50%,-50%);fill:var(--red)}
+.poster h1{margin:18px 0 0;font-family:var(--f-poster);font-weight:700;font-size:clamp(44px,6vw,76px);line-height:.95;letter-spacing:.03em;text-transform:uppercase;text-shadow:4px 4px 0 var(--red-deep)}
+.poster .han{font-family:var(--f-han);font-weight:900;font-size:26px;color:var(--gold);letter-spacing:.25em;margin-top:8px}
+.poster .tag{display:inline-block;margin-top:14px;background:var(--gold);color:var(--red-deep);font-family:var(--f-poster);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:14px;padding:5px 14px;border:2px solid var(--red-deep)}
+.facts{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+.facts div{text-align:center}
+.facts b{display:block;font-family:var(--f-poster);font-size:28px;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.facts span{font-size:12px;opacity:.9;text-transform:uppercase;letter-spacing:.06em}
 
 /* acesso */
-.access{flex:1;padding:0 20px 24px;margin-top:-18px;position:relative;z-index:2;display:flex;flex-direction:column;gap:14px}
-.access h2{font-family:var(--f-display);font-weight:800;font-size:22px;margin:0;text-align:center;text-wrap:balance}
-.access h2 + p{margin:-8px 0 0;text-align:center;color:var(--muted);font-size:14px}
-form{display:flex;flex-direction:column;gap:12px}
-.field label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red-deep);margin-bottom:5px}
-.field .box{display:flex;align-items:center;gap:10px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:0 14px;transition:border-color .15s}
-.field .box:focus-within{border-color:var(--red);box-shadow:0 0 0 4px rgba(200,16,46,.12)}
-.field .ico{font-family:var(--f-han);font-weight:900;color:var(--red);font-size:16px;flex:none}
-.field input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;padding:13px 0;color:var(--ink)}
-.field input::placeholder{color:#A99B95}
-.row{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.access{display:flex;align-items:center;justify-content:center;padding:40px 24px}
+.card{width:100%;max-width:420px;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font-family:var(--f-poster);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-size:13px;display:flex;align-items:center;gap:8px}
+.eyebrow svg{width:16px;height:16px;fill:var(--red)}
+.card h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:34px;line-height:1.1;text-wrap:balance}
+.card h2 .han{font-family:var(--f-han);color:var(--red);display:block;font-size:26px;margin-bottom:4px}
+.card h2 + p{margin:-6px 0 4px;color:var(--muted)}
+form{display:flex;flex-direction:column;gap:14px}
+.field label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red-deep);margin-bottom:6px}
+.box{display:flex;align-items:center;gap:10px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:0 14px;transition:border-color .15s}
+.box:focus-within{border-color:var(--red);box-shadow:0 0 0 4px rgba(200,16,46,.12)}
+.box .ico{font-family:var(--f-han);font-weight:900;color:var(--red);font-size:16px;flex:none}
+.box input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;padding:13px 0;color:var(--ink)}
+.box input::placeholder{color:#A99B95}
+.row{display:flex;justify-content:space-between;align-items:center;font-size:14px;gap:12px;flex-wrap:wrap}
 .row label{display:flex;align-items:center;gap:6px;color:var(--muted)}
 .row input{accent-color:var(--red)}
-.row a{color:var(--red);font-weight:600;text-decoration:none}
-
-.btn{position:relative;overflow:hidden;border:0;border-radius:99px;padding:15px 20px;font-family:var(--f-poster);font-weight:700;font-size:18px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
-.btn svg{width:22px;height:22px}
-.btn-main{background:var(--red);color:#fff;box-shadow:0 0 0 3px var(--gold),0 10px 26px -6px rgba(200,16,46,.7)}
-.btn-main svg{fill:var(--gold)}
-.btn-main::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg)}
-.btn:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
-
+a{color:var(--red);font-weight:600;text-decoration:none}
+a:hover{text-decoration:underline}
+.btn{position:relative;overflow:hidden;border:0;border-radius:99px;padding:15px 20px;font-family:var(--f-poster);font-weight:700;font-size:18px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;box-shadow:0 0 0 3px var(--gold),0 10px 26px -6px rgba(200,16,46,.7)}
+.btn svg{width:22px;height:22px;fill:var(--gold)}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg)}
+.btn:focus-visible,.alt:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
 .or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
 .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
 .alts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.alt{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:11px 8px;font:inherit;font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.alt{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:11px 8px;font:inherit;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 .alt .ico{font-family:var(--f-han);font-weight:900;color:var(--red)}
 .alt:hover{border-color:var(--red)}
+.msg{min-height:22px;margin:0;font-size:14px;font-weight:600;color:var(--red-deep)}
+.signup{font-size:14px;color:var(--muted);margin:0}
+.foot{font-size:12px;color:var(--muted);margin:8px 0 0;border-top:1px solid var(--line);padding-top:14px}
 
-.msg{min-height:20px;margin:0;text-align:center;font-size:13px;font-weight:600;color:var(--red-deep)}
-.signup{text-align:center;font-size:14px;color:var(--muted);margin:0}
-.signup a{color:var(--red);font-weight:700;text-decoration:none}
-.foot{text-align:center;font-size:11px;color:var(--muted);margin:auto 0 0}
-.foot .han{font-family:var(--f-han);font-weight:900;color:var(--red);letter-spacing:.1em}
-
-@media (max-width:440px){
-  body{padding:0}
-  .phone{border:0;border-radius:0;max-width:none;box-shadow:none;min-height:100vh}
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr}
+  .poster{padding:24px 20px 32px;gap:24px}
+  .emblem{width:150px}
+  .facts{gap:18px}
+  .access{padding:28px 16px 40px}
+  .card h2{font-size:28px}
 }
 @media (prefers-reduced-motion:no-preference){
   .emblem{animation:rise .9s cubic-bezier(.2,.8,.2,1.2) both}
-  @keyframes rise{from{transform:translateY(20px) scale(.85)}}
-  .emblem .star{animation:spin 30s linear infinite}
+  @keyframes rise{from{transform:translateY(24px) scale(.85)}}
+  .emblem .star{animation:spin 40s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .btn-main::after{animation:shine 3.2s ease-in-out infinite}
+  .btn::after{animation:shine 3.2s ease-in-out infinite}
   @keyframes shine{0%,55%{left:-60%}100%{left:130%}}
 }
 </style>
@@ -105,64 +114,73 @@ form{display:flex;flex-direction:column;gap:12px}
   <symbol id="star" viewBox="0 0 24 24"><path d="M12 1.8l2.9 7.1 7.6.5-5.9 4.9 1.9 7.4L12 17.6l-6.5 4.1 1.9-7.4-5.9-4.9 7.6-.5z"/></symbol>
 </svg>
 
-<div class="phone">
-  <header class="poster">
-    <div class="status"><span>9:41</span><span>5G · 87%</span></div>
-    <div class="emblem" aria-hidden="true">
-      <svg class="star"><use href="#star"/></svg>
-      <svg class="hs"><use href="#hs"/></svg>
+<div class="wrap">
+  <aside class="poster">
+    <div class="brand">
+      <div class="seal"><svg aria-hidden="true"><use href="#hs"/></svg></div>
+      <div><b>Rota Pequim</b><span>Área de membros</span></div>
     </div>
-    <h1>Rota Pequim</h1>
-    <div class="han">北京之路</div>
-    <span class="tag">Mandarim de malas prontas</span>
-  </header>
+    <div class="center">
+      <div class="emblem" aria-hidden="true">
+        <svg class="star"><use href="#star"/></svg>
+        <svg class="hs"><use href="#hs"/></svg>
+      </div>
+      <h1>Rota Pequim</h1>
+      <div class="han">北京之路</div>
+      <span class="tag">Mandarim de malas prontas</span>
+    </div>
+    <div class="facts">
+      <div><b>12.480</b><span>companheiros</span></div>
+      <div><b>6</b><span>módulos</span></div>
+      <div><b>5 anos</b><span>de plano em 87 dias</span></div>
+    </div>
+  </aside>
 
   <main class="access">
-    <h2><span style="font-family:var(--f-han);color:var(--red)">你好，同志！</span><br>Bem-vindo de volta</h2>
-    <p>Entre para continuar seu plano quinquenal de estudos.</p>
+    <div class="card">
+      <div class="eyebrow"><svg aria-hidden="true"><use href="#star"/></svg>Acesso do aluno</div>
+      <h2><span class="han">你好，同志！</span>Bem-vindo de volta</h2>
+      <p>Entre para continuar seu plano quinquenal de estudos.</p>
 
-    <form id="login" novalidate>
-      <div class="field">
-        <label for="email">E-mail do companheiro</label>
-        <div class="box"><span class="ico" aria-hidden="true">邮</span><input id="email" type="email" placeholder="voce@exemplo.com" autocomplete="email"></div>
-      </div>
-      <div class="field">
-        <label for="senha">Senha do partido</label>
-        <div class="box"><span class="ico" aria-hidden="true">密</span><input id="senha" type="password" placeholder="Mínimo 8 caracteres" autocomplete="current-password"></div>
-      </div>
-      <div class="row">
-        <label for="lembrar"><input id="lembrar" type="checkbox" checked> Lembrar de mim</label>
-        <a href="#">Esqueci a senha</a>
-      </div>
-      <button class="btn btn-main" type="submit"><svg aria-hidden="true"><use href="#hs"/></svg>Entrar · 进入</button>
-      <p class="msg" id="msg" role="status"></p>
-    </form>
+      <form id="login" novalidate>
+        <div class="field">
+          <label for="email">E-mail do companheiro</label>
+          <div class="box"><span class="ico" aria-hidden="true">邮</span><input id="email" type="email" placeholder="voce@exemplo.com" autocomplete="email"></div>
+        </div>
+        <div class="field">
+          <label for="senha">Senha do partido</label>
+          <div class="box"><span class="ico" aria-hidden="true">密</span><input id="senha" type="password" placeholder="Mínimo 8 caracteres" autocomplete="current-password"></div>
+        </div>
+        <div class="row">
+          <label for="lembrar"><input id="lembrar" type="checkbox" checked> Lembrar de mim</label>
+          <a href="#">Esqueci a senha</a>
+        </div>
+        <button class="btn" type="submit"><svg aria-hidden="true"><use href="#hs"/></svg>Entrar · 进入</button>
+        <p class="msg" id="msg" role="status"></p>
+      </form>
 
-    <div class="or">ou entre com</div>
-    <div class="alts">
-      <button class="alt" type="button" id="alt1"><span class="ico">护</span>Passaporte</button>
-      <button class="alt" type="button" id="alt2"><span class="ico">签</span>Visto</button>
+      <div class="or">ou entre com</div>
+      <div class="alts">
+        <button class="alt" type="button" id="alt1"><span class="ico">护</span>Passaporte</button>
+        <button class="alt" type="button" id="alt2"><span class="ico">签</span>Visto</button>
+      </div>
+
+      <p class="signup">Ainda não se alistou? <a href="#">Criar conta</a></p>
+      <p class="foot">全世界无产者，联合起来！ · Página de humor. Sem qualquer vínculo com partido político.</p>
     </div>
-
-    <p class="signup">Ainda não se alistou? <a href="#">Criar conta</a></p>
-    <p class="foot"><span class="han">全世界无产者，联合起来！</span><br>Página de humor. Sem qualquer vínculo com partido político.</p>
   </main>
 </div>
 
 <script>
 const msg=document.getElementById('msg');
+const go=t=>{msg.textContent=t;setTimeout(()=>{location.href='inicio.html'},700)};
 document.getElementById('login').addEventListener('submit',e=>{
   e.preventDefault();
-  const email=document.getElementById('email').value.trim();
-  const senha=document.getElementById('senha').value;
-  if(!email||!senha){msg.textContent='Preencha e-mail e senha, companheiro.';return;}
-  msg.textContent='Acesso liberado. Embarcando…';
-  setTimeout(()=>{location.href='inicio.html'},700);
+  if(!document.getElementById('email').value.trim()||!document.getElementById('senha').value){msg.textContent='Preencha e-mail e senha, companheiro.';return;}
+  go('Acesso liberado. Embarcando…');
 });
-['alt1','alt2'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{
-  msg.textContent='Carimbo aprovado. Embarcando…';
-  setTimeout(()=>{location.href='inicio.html'},700);
-}));
+document.getElementById('alt1').addEventListener('click',()=>go('Carimbo aprovado. Embarcando…'));
+document.getElementById('alt2').addEventListener('click',()=>go('Visto conferido. Embarcando…'));
 </script>
 </body>
 </html>
